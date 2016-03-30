@@ -1,6 +1,7 @@
 
 #include "register_types.h"
 #include "object_type_db.h"
+#include "reference.h"
 
 namespace {
 
