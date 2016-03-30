@@ -3,6 +3,8 @@
 #include "object_type_db.h"
 #include "reference.h"
 
+#include <oda/engine.h>
+
 namespace {
 
 class ODAModule : public Reference {
