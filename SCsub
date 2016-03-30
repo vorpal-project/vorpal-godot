@@ -1,5 +1,7 @@
 
 Import("env")
 
-env.add_source_files(env.modules_sources, "*.cxx")
+#env.add_source_files(env.modules_sources, "*.cxx")
+
+env.modules_sources += [env.Object('register_types.cxx', CPPFLAGS='-std=c++11')]
 
