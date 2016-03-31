@@ -9,12 +9,10 @@
 #include <vector>
 #include <string>
 
-namespace {
-
 using std::string;
 using std::vector;
 
-const string *paths = {"patches"};
+const static string paths[1] = {"patches"};
 
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
@@ -27,8 +25,6 @@ class ODAModule : public Reference {
   private:
     oda::godot::Engine engine_;
 };
-
-} // unnamed namespace
 
 void register_openda_types () {
   ObjectTypeDB::register_type<ODAModule>();
