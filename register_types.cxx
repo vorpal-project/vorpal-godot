@@ -11,8 +11,8 @@
 
 namespace {
 
-using string;
-using vector;
+using std::string;
+using std::vector;
 
 const vector<string> paths = {"patches"}
 
