@@ -1,6 +1,11 @@
 
 Import("env")
 
-env.add_source_files(env.modules_sources, "register_types.cxx",
-                     env.Object('engine.cxx', CPPFLAGS='-std=c++11'))
+#env.add_source_files(env.modules_sources, "*.cxx",
+#                     env.Object('engine.cxx', CPPFLAGS='-std=c++11'))
+
+env.modules_sources += [
+  "openda/registertypes.cxx",
+  env.Object('openda/engine.cxx', CPPFLAGS='-std=c++11'))
+]
 
