@@ -4,8 +4,10 @@ Import("env")
 #env.add_source_files(env.modules_sources, "*.cxx",
 #                     env.Object('engine.cxx', CPPFLAGS='-std=c++11'))
 
+env.Append(LINKFLAGS='-loda')
+
 env.modules_sources += [
   "openda/register_types.cxx",
-  env.Object('engine.cxx', CPPFLAGS='-std=c++11 -loda')
+  env.Object('engine.cxx', CPPFLAGS='-std=c++11')
 ]
 
