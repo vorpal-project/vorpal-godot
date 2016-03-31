@@ -17,7 +17,8 @@ const static string paths[1] = {"patches"};
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
   public:
-    ODAModule () : engine_(paths, paths + sizeof(paths)/sizeof(string)) {}
+    ODAModule ()
+      : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
   protected:
     static void _bind_methods () {
       // nothing
