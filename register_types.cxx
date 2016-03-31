@@ -20,7 +20,7 @@ class ODAModule : public Reference {
     ODAModule () : engine_(paths) {}
   protected:
     static void _bind_methods () {
-      ObjectTypeDB::bind_method(
+      // nothing
     }
   private:
     oda::godot::Engine engine_;
