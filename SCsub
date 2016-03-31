@@ -3,5 +3,8 @@ Import("env")
 
 #env.add_source_files(env.modules_sources, "*.cxx")
 
-env.modules_sources += [env.Object('register_types.cxx', CPPFLAGS='-std=c++11')]
+env.modules_sources += [
+  'register_types.cxx',
+  env.Object('engine.cxx', CPPFLAGS='-std=c++11')
+]
 

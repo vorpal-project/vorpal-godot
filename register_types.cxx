@@ -3,7 +3,8 @@
 #include "object_type_db.h"
 #include "reference.h"
 
-#include <oda/engine.h>
+// Wrap for oda
+#include "engine.h"
 
 namespace {
 
@@ -13,6 +14,8 @@ class ODAModule : public Reference {
     static void _bind_methods () {
       // nothing;
     }
+  private:
+    oda::godot::Engine engine;
 };
 
 } // unnamed namespace
