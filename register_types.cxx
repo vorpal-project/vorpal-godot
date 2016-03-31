@@ -14,7 +14,7 @@ namespace {
 using std::string;
 using std::vector;
 
-const vector<string> paths = {"patches"}
+const string *paths = {"patches"};
 
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
