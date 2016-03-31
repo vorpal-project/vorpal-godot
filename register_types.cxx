@@ -6,16 +6,26 @@
 // Wrap for oda
 #include "engine.h"
 
+#include <vector>
+#include <string>
+
 namespace {
+
+using string;
+using vector;
+
+const vector<string> paths = {"patches"}
 
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
+  public:
+    ODAModule () : engine_(paths) {}
   protected:
     static void _bind_methods () {
-      // nothing;
+      ObjectTypeDB::bind_method(
     }
   private:
-    oda::godot::Engine engine;
+    oda::godot::Engine engine_;
 };
 
 } // unnamed namespace
