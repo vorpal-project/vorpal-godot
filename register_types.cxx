@@ -14,6 +14,7 @@ using std::vector;
 
 const static string paths[1] = {"patches"};
 
+
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
   public:
