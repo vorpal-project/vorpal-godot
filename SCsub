@@ -5,7 +5,7 @@ Import("env")
 #                     env.Object('engine.cxx', CPPFLAGS='-std=c++11'))
 
 #env.Append(LINKFLAGS=['liboda'])
-env.Append(LIBS=['liboda.a'])
+env.Append(LIBS=['liboda'])
 
 env.modules_sources += [
   "openda/register_types.cxx",
