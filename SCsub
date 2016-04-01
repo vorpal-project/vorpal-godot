@@ -4,7 +4,7 @@ Import("env")
 #env.add_source_files(env.modules_sources, "*.cxx",
 #                     env.Object('engine.cxx', CPPFLAGS='-std=c++11'))
 
-env.Append(LINKFLAGS=['liboda.a'])
+env.Append(LINKFLAGS=['liboda'])
 env.Append(LIBS=['liboda.a'])
 
 env.modules_sources += [
