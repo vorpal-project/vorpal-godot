@@ -11,6 +11,7 @@ namespace godot {
 class Engine {
   public:
     Engine (const std::vector<std::string> &patch_paths);
+    bool ok () const;
     ~Engine ();
 };
 

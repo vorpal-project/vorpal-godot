@@ -21,6 +21,10 @@ Engine::~Engine () {
     engine.finish();
 }
 
+bool Engine::ok () const {
+  return oda::Engine().started();
+}
+
 } // namespace godot
 } // namespace oda
 

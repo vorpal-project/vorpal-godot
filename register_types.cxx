@@ -19,9 +19,10 @@ class ODAModule : public Reference {
   public:
     ODAModule ()
       : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
+    bool ok () const { return engine_.ok(); }
   protected:
     static void _bind_methods () {
-      // nothing
+      ObjectTypeDB::bind_method("ok", &ODAModule::ok);
     }
   private:
     oda::godot::Engine engine_;
