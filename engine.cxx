@@ -32,6 +32,10 @@ size_t Engine::eventInstance (const string &name) {
   return events_.size();
 }
 
+void Engine::tick (double dt) {
+  oda::Engine().tick(dt);
+}
+
 } // namespace godot
 } // namespace oda
 

@@ -15,8 +15,6 @@
 using std::string;
 using std::vector;
 
-const static string paths[1] = {"./patches"};
-
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
   public:
@@ -27,11 +25,15 @@ class ODAModule : public Reference {
     size_t eventInstance (const String &name) {
       return engine_.eventInstance(name.ascii().get_data());
     }
+    void tick (double dt) {
+      engine_.tick(dt);
+    }
   protected:
     static void _bind_methods () {
       ObjectTypeDB::bind_method("ok", &ODAModule::ok);
       ObjectTypeDB::bind_method("start", &ODAModule::start);
       ObjectTypeDB::bind_method("eventInstance", &ODAModule::eventInstance);
+      ObjectTypeDB::bind_method("tick", &ODAModule::tick);
     }
   private:
     oda::godot::Engine engine_;
