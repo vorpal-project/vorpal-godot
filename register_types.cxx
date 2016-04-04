@@ -20,7 +20,7 @@ class ODAModule : public Reference {
     ODAModule ()
       : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
     bool ok () const { return engine_.ok(); }
-    size_t eventInstance (const string &name) {
+    size_t eventInstance (const char *name) {
       return engine_.eventInstance(name);
     }
   protected:
