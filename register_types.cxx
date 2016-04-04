@@ -24,7 +24,7 @@ class ODAModule : public Reference {
       : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
     bool ok () const { return engine_.ok(); }
     size_t eventInstance (const String &name) {
-      return engine_.eventInstance(name.c_str());
+      return engine_.eventInstance(name.ascii().get_data());
     }
   protected:
     static void _bind_methods () {
