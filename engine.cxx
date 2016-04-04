@@ -33,7 +33,7 @@ size_t Engine::eventInstance (const string &name) {
 }
 
 void Engine::pushCommand (size_t id, const string &cmd) {
-  events_[id].pushCommand(cmd);
+  events_[id]->pushCommand(cmd);
 }
 
 void Engine::tick (double dt) {
