@@ -2,6 +2,7 @@
 #include "register_types.h"
 
 // Godot headers
+#include "dvector.h"
 #include "object_type_db.h"
 #include "reference.h"
 #include "ustring.h"
@@ -25,6 +26,9 @@ class ODAModule : public Reference {
     size_t eventInstance (const String &name) {
       return engine_.eventInstance(name.ascii().get_data());
     }
+    void pushCommand (size_t id, const String &cmd) {
+      engine_.pushCommand(id, cmd.ascii().get_data());
+    }
     void tick (double dt) {
       engine_.tick(dt);
     }
@@ -33,6 +37,7 @@ class ODAModule : public Reference {
       ObjectTypeDB::bind_method("ok", &ODAModule::ok);
       ObjectTypeDB::bind_method("start", &ODAModule::start);
       ObjectTypeDB::bind_method("eventInstance", &ODAModule::eventInstance);
+      ObjectTypeDB::bind_method("pushCommand", &ODAModule::pushCommand);
       ObjectTypeDB::bind_method("tick", &ODAModule::tick);
     }
   private:

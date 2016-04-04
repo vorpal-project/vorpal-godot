@@ -18,6 +18,7 @@ class Engine {
     bool start (const std::vector<std::string> &patch_paths);
     bool ok () const;
     size_t eventInstance (const std::string &name);
+    void pushCommand (size_t id, const std::string &cmd);
     void tick (double dt);
   private:
     std::vector<Event*> events_;

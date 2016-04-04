@@ -32,6 +32,10 @@ size_t Engine::eventInstance (const string &name) {
   return events_.size();
 }
 
+void Engine::pushCommand (size_t id, const string &cmd) {
+  events_[id].pushCommand(cmd);
+}
+
 void Engine::tick (double dt) {
   oda::Engine().tick(dt);
 }
