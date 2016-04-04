@@ -20,9 +20,13 @@ class ODAModule : public Reference {
     ODAModule ()
       : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
     bool ok () const { return engine_.ok(); }
+    size_t eventInstance (const string &name) {
+      return engine_.eventInstance(name);
+    }
   protected:
     static void _bind_methods () {
       ObjectTypeDB::bind_method("ok", &ODAModule::ok);
+      ObjectTypeDB::bind_method("eventInstance", &ODAModule::eventInstance);
     }
   private:
     oda::godot::Engine engine_;

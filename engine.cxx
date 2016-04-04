@@ -25,6 +25,13 @@ bool Engine::ok () const {
   return oda::Engine().started();
 }
 
+size_t Engine::eventInstance (const string &name) {
+  oda::Event *event = new oda::Event;
+  oda::Engine().eventInstance(name, event);
+  events_.push_back(event);
+  return events_.size();
+}
+
 } // namespace godot
 } // namespace oda
 
