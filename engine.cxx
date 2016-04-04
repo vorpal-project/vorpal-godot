@@ -11,14 +11,14 @@ using std::vector;
 namespace oda {
 namespace godot {
 
-Engine::Engine (const vector<string> &patch_paths) {
-  oda::Engine().start(patch_paths);
-}
-
 Engine::~Engine () {
   oda::Engine engine;
   if (engine.started())
     engine.finish();
+}
+
+bool Engine::start (const vector<string> &patch_paths) {
+  return oda::Engine().start(patch_paths).ok();
 }
 
 bool Engine::ok () const {

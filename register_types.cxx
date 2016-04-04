@@ -20,8 +20,9 @@ const static string paths[1] = {"./patches"};
 class ODAModule : public Reference {
   OBJ_TYPE(ODAModule, Reference);
   public:
-    ODAModule ()
-      : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
+    bool start (const String &path) {
+      return engine_.start(vector<string>(1, path.ascii().get_data()));
+    }
     bool ok () const { return engine_.ok(); }
     size_t eventInstance (const String &name) {
       return engine_.eventInstance(name.ascii().get_data());
@@ -29,6 +30,7 @@ class ODAModule : public Reference {
   protected:
     static void _bind_methods () {
       ObjectTypeDB::bind_method("ok", &ODAModule::ok);
+      ObjectTypeDB::bind_method("start", &ODAModule::start);
       ObjectTypeDB::bind_method("eventInstance", &ODAModule::eventInstance);
     }
   private:
