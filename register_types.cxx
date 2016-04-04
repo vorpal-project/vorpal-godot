@@ -1,7 +1,10 @@
 
 #include "register_types.h"
+
+// Godot headers
 #include "object_type_db.h"
 #include "reference.h"
+#include "ustring.h"
 
 // Wrap for oda
 #include "engine.h"
@@ -20,8 +23,8 @@ class ODAModule : public Reference {
     ODAModule ()
       : engine_(vector<string>(paths, paths + sizeof(paths)/sizeof(string))) {}
     bool ok () const { return engine_.ok(); }
-    size_t eventInstance (const char *name) {
-      return engine_.eventInstance(name);
+    size_t eventInstance (const String &name) {
+      return engine_.eventInstance(name.c_str());
     }
   protected:
     static void _bind_methods () {
