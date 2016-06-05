@@ -2,13 +2,14 @@
 #ifndef ODA_GODOT_ENGINE_H_
 #define ODA_GODOT_ENGINE_H_
 
+#include <memory>
 #include <queue>
 #include <string>
 #include <vector>
 
 namespace oda {
 
-class Event;
+class SoundtrackEvent;
 
 namespace godot {
 
@@ -21,7 +22,7 @@ class Engine {
     void pushCommand (size_t id, const std::string &cmd);
     void tick (double dt);
   private:
-    std::vector<Event*> events_;
+    std::vector<sts::shared_ptr<Event>> events_;
     //std::queue<size_t> free_ids_;
 };
 
