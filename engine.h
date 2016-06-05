@@ -22,7 +22,7 @@ class Engine {
     void pushCommand (size_t id, const std::string &cmd);
     void tick (double dt);
   private:
-    std::vector<sts::shared_ptr<Event>> events_;
+    std::vector<std::shared_ptr<SoundtrackEvent>> events_;
     //std::queue<size_t> free_ids_;
 };
 
