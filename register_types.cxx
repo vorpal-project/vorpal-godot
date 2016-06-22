@@ -10,6 +10,7 @@
 // Wrap for oda
 #include <oda/oda.h>
 
+#include <iostream>
 #include <memory>
 #include <vector>
 #include <string>
@@ -30,10 +31,13 @@ class ODAModule : public Reference {
   bool ok() const { return engine_.started(); }
   int eventInstance(const String &name) {
     shared_ptr<oda::SoundtrackEvent> event;
-    if (engine_.eventInstance(name.ascii().get_data(), &event).ok()) {
+    oda::Status status = engine_.eventInstance(name.ascii().get_data(), &event)
+    if (status.ok()) {
       events_.push_back(event);
       return events_.size()-1;
     }
+    std::cout << "[ODA-wrap] Failed to instanciate event '"
+              << name.ascii().get_data() << "'" << std::endl;
     return -1;
   }
   void pushCommand (size_t id, const String &cmd) {
