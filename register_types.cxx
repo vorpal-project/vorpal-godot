@@ -28,11 +28,13 @@ class ODAModule : public Reference {
     return engine_.start(vector<string>(1, path.ascii().get_data())).ok();
   }
   bool ok() const { return engine_.started(); }
-  size_t eventInstance(const String &name) {
+  int eventInstance(const String &name) {
     shared_ptr<oda::SoundtrackEvent> event;
-    engine_.eventInstance(name.ascii().get_data(), &event);
-    events_.push_back(event);
-    return events_.size()-1;
+    if (engine_.eventInstance(name.ascii().get_data(), &event).ok()) {
+      events_.push_back(event);
+      return events_.size()-1;
+    }
+    return -1;
   }
   void pushCommand (size_t id, const String &cmd) {
     events_[id]->pushCommand(cmd.ascii().get_data());
@@ -68,4 +70,3 @@ void register_openda_types () {
 void unregister_openda_types () {
   // nothing at all?
 }
-
