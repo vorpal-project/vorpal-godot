@@ -31,7 +31,7 @@ class ODAModule : public Reference {
   bool ok() const { return engine_.started(); }
   int eventInstance(const String &name) {
     shared_ptr<oda::SoundtrackEvent> event;
-    oda::Status status = engine_.eventInstance(name.ascii().get_data(), &event)
+    oda::Status status = engine_.eventInstance(name.ascii().get_data(), &event);
     if (status.ok()) {
       events_.push_back(event);
       return events_.size()-1;
