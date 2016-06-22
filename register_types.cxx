@@ -38,6 +38,7 @@ class ODAModule : public Reference {
     }
     std::cout << "[ODA-wrap] Failed to instanciate event '"
               << name.ascii().get_data() << "'" << std::endl;
+    std::cout << "[ODA-wrap] " << status.description() << std::endl;
     return -1;
   }
   void pushCommand (size_t id, const String &cmd) {
