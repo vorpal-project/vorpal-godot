@@ -41,10 +41,19 @@ class ODAModule : public Reference {
     std::cout << "[ODA-wrap] " << status.description() << std::endl;
     return -1;
   }
-  void pushCommand (size_t id, const String &cmd) {
+  void freeEvent(int id) {
+    events_[id].reset();
+  }
+  void clear() {
+    events_.clear();
+  }
+  void pushCommand (int id, const String &cmd) {
     events_[id]->pushCommand(cmd.ascii().get_data());
   }
-  void setEventPosition (size_t id, float x, float y, float z) {
+  void pushCommand1f (int id, const String &cmd, float arg) {
+    events_[id]->pushCommand(cmd.ascii().get_data(), arg);
+  }
+  void setEventPosition (int id, float x, float y, float z) {
     events_[id]->setAudioSource(x, y, z);
   }
   void tick (double dt) {
@@ -55,9 +64,12 @@ class ODAModule : public Reference {
     ObjectTypeDB::bind_method("ok", &ODAModule::ok);
     ObjectTypeDB::bind_method("start", &ODAModule::start);
     ObjectTypeDB::bind_method("event_instance", &ODAModule::eventInstance);
+    ObjectTypeDB::bind_method("free_event", &ODAModule::freeEvent);
+    ObjectTypeDB::bind_method("clear", &ODAModule::clear);
     ObjectTypeDB::bind_method("set_event_position",
                               &ODAModule::setEventPosition);
     ObjectTypeDB::bind_method("push_command", &ODAModule::pushCommand);
+    ObjectTypeDB::bind_method("push_command_1f", &ODAModule::pushCommand1f);
     ObjectTypeDB::bind_method("tick", &ODAModule::tick);
   }
  private:
