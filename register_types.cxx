@@ -28,6 +28,9 @@ class ODAModule : public Reference {
   bool start(const String &path) {
     return engine_.start(vector<string>(1, path.ascii().get_data())).ok();
   }
+  void finish() {
+    engine_.finish();
+  }
   bool ok() const { return engine_.started(); }
   int eventInstance(const String &name) {
     shared_ptr<oda::SoundtrackEvent> event;
