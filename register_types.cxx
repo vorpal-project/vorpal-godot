@@ -66,6 +66,7 @@ class ODAModule : public Reference {
   static void _bind_methods () {
     ObjectTypeDB::bind_method("ok", &ODAModule::ok);
     ObjectTypeDB::bind_method("start", &ODAModule::start);
+    ObjectTypeDB::bind_method("finish", &ODAModule::finish);
     ObjectTypeDB::bind_method("event_instance", &ODAModule::eventInstance);
     ObjectTypeDB::bind_method("free_event", &ODAModule::freeEvent);
     ObjectTypeDB::bind_method("clear", &ODAModule::clear);
