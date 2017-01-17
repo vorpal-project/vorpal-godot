@@ -1,2 +1,2 @@
-# openda-godot
-OpenDA bindings as a Godot module middleware.
+# vorpal-godot
+VORPAL bindings as a Godot module middleware.
